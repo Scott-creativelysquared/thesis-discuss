@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "files": {
+    "article.staging": {
+      "file": "dist/article.staging.js",
+      "bytes": 40994,
+      "sri": "sha384-a9cPln6rWFb4ZrLAwm4p5NIsuJVvECK66wfO/GTmjXpDBD5oYS8+1Q8XyCzItxPX"
+    },
+    "dashboard.staging": {
+      "file": "dist/dashboard.staging.js",
+      "bytes": 48956,
+      "sri": "sha384-I5tgQ7b7DUrmvdQ7u4sr/AFig2jaGoJwuTtAieIj3/IFduPQ3xqHZsA8WFKIIBsc"
+    }
+  }
+}
