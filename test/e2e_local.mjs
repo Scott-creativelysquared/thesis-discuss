@@ -135,6 +135,7 @@ try {
   await p.locator('#discussion .csd-post').click();
   await p.waitForSelector('.csd-c', { timeout: 4000 });
   ok('comment posted', (await p.locator('.csd-c').count()) === 1);
+  ok('no stray null text', !(await p.locator('#discussion').innerText()).includes('null'));
   ok('comment tagged with section', (await p.locator('.csd-c .csd-time', { hasText: 'on 1 The biggest lever' }).count()) === 1);
   ok('discuss count updated', (await p.locator('[data-csd-discuss="1-the-biggest-lever"]').innerText()).includes('1'));
   // share the comment via native/copy

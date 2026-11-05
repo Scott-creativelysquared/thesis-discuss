@@ -326,10 +326,7 @@ function shareText(ctx) {
 }
 const clip = (s, n) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
 
-function teamsLauncherSupported() {
-  const brands = (navigator.userAgentData?.brands || []).map((b) => b.brand).join(' ');
-  return DEVICE === 'desktop' && /Google Chrome|Microsoft Edge/.test(brands);
-}
+function teamsLauncherSupported() { return DEVICE === 'desktop'; }
 let teamsLoad = null;
 function loadTeams() {
   if (!teamsLauncherSupported()) return Promise.resolve(false);
@@ -420,8 +417,7 @@ function openShareSheet(ctx) {
     ctx.quote ? h('blockquote', { class: 'csd-q' }, ctx.quote) : null,
     h('div', { class: 'csd-grid' }, PRIMARY.map(tile), DEVICE === 'mobile' && navigator.share ? tile('native') : null),
     h('button', { class: 'csd-more-toggle', type: 'button', 'aria-expanded': 'false', onclick: (e) => { const open = more.classList.toggle('is-open'); e.currentTarget.setAttribute('aria-expanded', open); e.currentTarget.textContent = open ? 'Fewer options' : 'More: Slack, Facebook, X and others'; } }, 'More: Slack, Facebook, X and others'),
-    more,
-    h('p', { class: 'csd-note' }, 'No sign-in needed to share. Each link is unique so we can see which channels people read from. We never see your messages.'));
+    more);
   const scrim = h('div', { class: 'csd csd-scrim', onclick: (e) => { if (e.target === scrim) closeSheet(); } }, sheet);
   document.body.append(scrim);
   document.addEventListener('keydown', escClose);
@@ -569,12 +565,14 @@ const discuss = (() => {
     } }, icon('eye'), live ? 'Hide' : 'Restore'));
 
     const showBody = c.body != null;
-    wrap.append(
+    const append = (...kids) => wrap.append(...kids.filter((k) => k != null && k !== false));
+    append(
       h('div', { class: 'csd-c-h' },
         showBody ? avatar(c.author_name, c.author_avatar) : h('span', { class: 'csd-av' }, '–'),
         showBody ? nameEl : h('span', { class: 'csd-name csd-muted' }, 'Removed'),
         h('a', { class: 'csd-time', href: '#comment-' + c.id, title: new Date(c.created_at).toLocaleString('en-AU') }, ago(c.created_at)),
         c.status === 'hidden' && showBody ? h('span', { class: 'csd-badge is-warn' }, 'Hidden') : null,
+        c.status === 'deleted' && showBody ? h('span', { class: 'csd-badge is-warn' }, 'Deleted by author') : null,
         c.is_mine && live ? h('span', { class: 'csd-badge' }, 'You') : null,
         depth === 0 && sec && !c.quote ? h('a', { class: 'csd-time', href: '#' + sec.id }, 'on ' + sec.title) : null),
       c.quote && showBody ? h('a', { class: 'csd-c-q', href: '#' + (c.passage || c.section || ''), onclick: (e) => { const el = passageEl(c.passage); if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('csd-flash'); void el.offsetWidth; el.classList.add('csd-flash'); } } },
