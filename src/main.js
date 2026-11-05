@@ -6,7 +6,7 @@ const CFG = Object.assign({
   key: __SB_KEY__,
   article: 'thesis',
   content: null,           // CSS selector for the article body; defaults to [data-thesis-content] or the largest rich text block
-  title: null,
+  title: 'How brands actually grow on social',
   author: 'Scott Thomas',
   sectionTools: true,
   floatingShare: true,

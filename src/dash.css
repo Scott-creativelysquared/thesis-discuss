@@ -142,7 +142,7 @@ a.csd-time:hover{text-decoration:underline}
 .csd-tbl-w{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
 .csd-tbl{width:100%;border-collapse:collapse;font-size:14px}
 .csd-tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--b3);font-weight:800;padding:10px 12px;background:#faf9fc;white-space:nowrap}
-.csd-tbl td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+.csd-tbl td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;min-width:96px}
 .csd-tbl td.n,.csd-tbl th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .csd-barcell{display:flex;align-items:center;gap:8px;min-width:140px}
 .csd-barcell i{display:block;height:8px;border-radius:4px;background:var(--t);min-width:2px}

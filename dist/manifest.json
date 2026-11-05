@@ -3,13 +3,13 @@
   "files": {
     "article.staging": {
       "file": "dist/article.staging.js",
-      "bytes": 40864,
-      "sri": "sha384-CWKcGQxFtaT0ZuzCj6ZkqMge9l8OGBfLMuoHffQavAuO7ROiSxv1aIcJEoUyy1pJ"
+      "bytes": 40896,
+      "sri": "sha384-4a4vHuXlopgITYOCdFpzEn3pNeW0wQTBobxWmlWDd8uZ7LYywX4TbDDncwOAwM7g"
     },
     "dashboard.staging": {
       "file": "dist/dashboard.staging.js",
-      "bytes": 48826,
-      "sri": "sha384-tPmA5tptNA6WB4HXxT5abCnPwNBGIzNqk/RLxjXPoGWBeqmc4l03LpOGsVPmv5Py"
+      "bytes": 48873,
+      "sri": "sha384-z/kfHPLptm63XR2J/iaj8a2HQZSDe2UErQu2O4liGK/5H35UD8cz6vqSSBG2OsTX"
     }
   }
 }
